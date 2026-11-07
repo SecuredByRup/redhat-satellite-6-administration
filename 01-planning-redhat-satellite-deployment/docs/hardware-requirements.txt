@@ -1,0 +1,21 @@
+RED HAT SATELLITE 6 HARDWARE REQUIREMENTS ANALYSIS
+==================================================
+
+MINIMUM REQUIREMENTS:
+- CPU: 4 cores (2.0 GHz)
+- RAM: 20 GB
+- Storage: 300 GB (for base installation)
+- Network: 1 Gbps connection
+
+RECOMMENDED REQUIREMENTS:
+- CPU: 8+ cores (2.4 GHz or higher)
+- RAM: 32 GB or more
+- Storage: 500 GB+ (SSD preferred)
+- Network: 1 Gbps connection with redundancy
+
+STORAGE BREAKDOWN:
+- Root filesystem (/): 20 GB minimum
+- /var/lib/pulp: 200+ GB (content storage)
+- /var/lib/mongodb: 50+ GB (database)
+- /var/log: 10+ GB (logging)
+- Swap: Equal to RAM size

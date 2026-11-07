@@ -1,0 +1,63 @@
+RED HAT SATELLITE ARCHITECTURE DESIGN
+=====================================
+
+HIGH-LEVEL ARCHITECTURE:
+
+                    [Internet/Red Hat CDN]
+                              |
+                    [Corporate Firewall]
+                              |
+                    [Satellite Server]
+                     /      |      \
+                    /       |       \
+            [Capsule 1] [Capsule 2] [Capsule 3]
+                 |          |           |
+          [Content Hosts] [Content Hosts] [Content Hosts]
+
+DETAILED COMPONENT LAYOUT:
+
+SATELLITE SERVER (Primary Site):
+┌─────────────────────────────────────┐
+│ Red Hat Satellite Server            │
+│ ┌─────────────────────────────────┐ │
+│ │ Web UI / API (Port 443)         │ │
+│ ├─────────────────────────────────┤ │
+│ │ Katello (Content Management)    │ │
+│ ├─────────────────────────────────┤ │
+│ │ Foreman (Host Management)       │ │
+│ ├─────────────────────────────────┤ │
+│ │ Pulp (Repository Management)    │ │
+│ ├─────────────────────────────────┤ │
+│ │ Candlepin (Subscription Mgmt)   │ │
+│ └─────────────────────────────────┘ │
+│                                     │
+│ Databases:                          │
+│ - PostgreSQL (Configuration)        │
+│ - MongoDB (Content Metadata)        │
+└─────────────────────────────────────┘
+
+CAPSULE SERVER (Remote Sites):
+┌─────────────────────────────────────┐
+│ Red Hat Satellite Capsule           │
+│ ┌─────────────────────────────────┐ │
+│ │ Pulp Node (Content Cache)       │ │
+│ ├─────────────────────────────────┤ │
+│ │ Smart Proxy Services:           │ │
+│ │ - DHCP                          │ │
+│ │ - DNS                           │ │
+│ │ - TFTP                          │ │
+│ │ - Puppet/Ansible Proxy          │ │
+│ └─────────────────────────────────┘ │
+└─────────────────────────────────────┘
+
+CONTENT HOSTS:
+┌─────────────────────────────────────┐
+│ Managed RHEL Systems                │
+│ ┌─────────────────────────────────┐ │
+│ │ Katello Agent                   │ │
+│ ├─────────────────────────────────┤ │
+│ │ Puppet/Ansible Agent            │ │
+│ ├─────────────────────────────────┤ │
+│ │ Subscription Manager            │ │
+│ └─────────────────────────────────┘ │
+└─────────────────────────────────────┘

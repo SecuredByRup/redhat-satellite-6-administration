@@ -1,0 +1,30 @@
+SATELLITE NETWORK REQUIREMENTS
+==============================
+
+BANDWIDTH REQUIREMENTS:
+- Initial sync: High bandwidth (100+ Mbps recommended)
+- Ongoing operations: 10-50 Mbps depending on client count
+- Content delivery: Scale with number of concurrent clients
+
+PORT REQUIREMENTS:
+Inbound:
+- 443/tcp: HTTPS (Satellite web UI, API, content delivery)
+- 80/tcp: HTTP (redirects to HTTPS)
+- 5647/tcp: Katello agent communication
+- 8140/tcp: Puppet agent communication
+- 9090/tcp: Cockpit web console (optional)
+
+Outbound:
+- 443/tcp: HTTPS to Red Hat CDN
+- 80/tcp: HTTP for repository synchronization
+- 53/tcp,udp: DNS queries
+
+NETWORK SERVICES:
+- DNS: Forward and reverse lookup capability
+- NTP: Time synchronization
+- DHCP: For provisioning (if using Satellite for bare-metal)
+
+FIREWALL CONFIGURATION:
+- Allow required ports through corporate firewall
+- Configure SELinux policies appropriately
+- Consider load balancer requirements for HA setup

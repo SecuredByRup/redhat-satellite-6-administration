@@ -1,0 +1,52 @@
+RED HAT SATELLITE ARCHITECTURE COMPONENTS
+=========================================
+
+1. SATELLITE SERVER (Central Management)
+   Role: Primary management and content distribution hub
+   
+   Key Functions:
+   - Content management and synchronization
+   - Configuration management
+   - Patch management
+   - Provisioning and deployment
+   - Reporting and compliance
+   - User authentication and authorization
+   
+   Components:
+   - Katello: Content management
+   - Foreman: Host lifecycle management
+   - Candlepin: Subscription management
+   - Pulp: Content repository management
+   - MongoDB: Database for content metadata
+   - PostgreSQL: Database for configuration data
+
+2. CAPSULE SERVERS (Distributed Services)
+   Role: Extend Satellite services to remote locations
+   
+   Key Functions:
+   - Local content caching and delivery
+   - Provisioning services (DHCP, DNS, TFTP, PXE)
+   - Configuration management proxy
+   - Local logging and monitoring
+   
+   Benefits:
+   - Reduced WAN bandwidth usage
+   - Improved performance for remote sites
+   - Continued operations during WAN outages
+   - Localized provisioning services
+
+3. CONTENT HOSTS (Managed Systems)
+   Role: Systems managed by Satellite
+   
+   Types:
+   - Physical servers
+   - Virtual machines
+   - Cloud instances
+   - Containers (with appropriate tooling)
+   
+   Management Capabilities:
+   - Package management
+   - Configuration management
+   - Patch compliance
+   - Security scanning
+   - Performance monitoring

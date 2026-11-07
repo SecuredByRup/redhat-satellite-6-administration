@@ -1,0 +1,54 @@
+SATELLITE NETWORK TOPOLOGY DESIGN
+=================================
+
+NETWORK SEGMENTS:
+
+1. MANAGEMENT NETWORK (Primary Site):
+   - Satellite Server: 10.0.1.10/24
+   - Management interfaces
+   - Administrative access
+   - Backup network connections
+
+2. CONTENT DELIVERY NETWORK:
+   - Content synchronization traffic
+   - Client update traffic
+   - Repository access
+
+3. PROVISIONING NETWORK (per site):
+   - PXE boot network
+   - DHCP scope management
+   - TFTP services
+   - Discovery services
+
+SITE CONNECTIVITY:
+
+Headquarters (Primary):
+├── Satellite Server (10.0.1.10)
+├── Internal DNS (10.0.1.5)
+├── NTP Server (10.0.1.6)
+└── Backup Infrastructure
+
+Remote Site A:
+├── Capsule Server (10.1.1.10)
+├── Local DNS (10.1.1.5)
+├── DHCP Range: 10.1.1.100-200
+└── Content Hosts (10.1.1.x)
+
+Remote Site B:
+├── Capsule Server (10.2.1.10)
+├── Local DNS (10.2.1.5)
+├── DHCP Range: 10.2.1.100-200
+└── Content Hosts (10.2.1.x)
+
+BANDWIDTH PLANNING:
+- Initial sync: Plan for high bandwidth usage
+- Ongoing sync: 10-50 Mbps per site
+- Client updates: Scale with concurrent clients
+- Provisioning: Local network speeds sufficient
+
+SECURITY CONSIDERATIONS:
+- SSL/TLS encryption for all communications
+- Certificate-based authentication
+- Network segmentation
+- Firewall rules and access controls
+- VPN connectivity for remote sites

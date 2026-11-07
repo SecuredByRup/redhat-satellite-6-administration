@@ -1,0 +1,43 @@
+CONTENT HOST MANAGEMENT STRATEGY
+===============================
+
+HOST CATEGORIZATION:
+1. BY FUNCTION:
+   - Web Servers
+   - Database Servers
+   - Application Servers
+   - Development Systems
+   - Testing Systems
+   - Production Systems
+
+2. BY CRITICALITY:
+   - Critical (24/7 uptime required)
+   - Important (business hours uptime)
+   - Standard (scheduled maintenance acceptable)
+   - Development (flexible maintenance)
+
+3. BY PATCH SCHEDULE:
+   - Immediate (security patches within 24 hours)
+   - Weekly (standard patch cycle)
+   - Monthly (stable systems)
+   - Quarterly (legacy systems)
+
+LIFECYCLE ENVIRONMENTS:
+Development → Testing → Staging → Production
+
+CONTENT VIEWS:
+- Base RHEL Content View
+- Application-specific Content Views
+- Security-only Content Views
+- Custom package Content Views
+
+HOST COLLECTIONS:
+- Group hosts by function, location, or patch schedule
+- Apply bulk operations efficiently
+- Manage compliance reporting
+
+ACTIVATION KEYS:
+- Automate host registration
+- Apply appropriate subscriptions
+- Assign to correct lifecycle environment
+- Configure host collections automatically
